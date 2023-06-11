@@ -8,7 +8,7 @@ const error = document.getElementById('error');
 
 const resetPage = () => {
   subscribed.style.display = 'none';
-  signUp.style.display = 'block';
+  signUp.style.display = 'flex';
   error.style.display = 'none';
   input.value = '';
   input.classList.remove('error');

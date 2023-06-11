@@ -6,7 +6,7 @@
 @grey: hsl(231, 7%, 60%);
 @white: hsl(0, 0%, 100%);
 
-@desktop: 1028px;
+@desktop: 1024px;
 
 * {
   box-sizing: border-box;
@@ -26,6 +26,12 @@ body {
   width: 100%;
   font-size: 1.6rem;
   background: @dark-slate-grey;
+
+  @media (min-width: @desktop) {
+    display: grid;
+    justify-items: center;
+    align-content: center;
+  }
 }
 
 main {
@@ -34,9 +40,38 @@ main {
   flex-direction: column;
   min-height: 100%;
 
+  @media (min-width: @desktop) {
+    overflow: hidden;
+    box-shadow: 0px 15px 60px rgba(0, 0, 0, 0.25);
+    border-radius: 36px;
+    max-width: 92.8rem;
+    padding: 2.4rem;
+  }
+
   #sign-up {
-    img {
+    display: flex;
+    flex-direction: column;
+
+    @media (min-width: @desktop) {
+      gap: 6.4rem;
+      align-items: center;
+      flex-direction: row-reverse;
+    }
+
+    .img-container {
+      height: 28.4rem;
+      background: url(./assets/images/illustration-sign-up-mobile.svg) no-repeat;
+      background-size: cover;
       width: 100%;
+
+      @media (min-width: @desktop) {
+        height: 100%;
+        background: url(./assets/images/illustration-sign-up-desktop.svg)
+          no-repeat;
+        background-size: cover;
+        width: 40rem;
+        border-radius: 16px;
+      }
     }
 
     section {
@@ -44,6 +79,12 @@ main {
       display: flex;
       flex-direction: column;
       gap: 2.4rem;
+
+      @media (min-width: @desktop) {
+        max-width: 37.6rem;
+        padding: 7.3rem 0 7.3rem 4rem;
+        box-sizing: content-box;
+      }
 
       h1 {
         .title();
@@ -104,6 +145,7 @@ main {
           outline: none;
           color: @dark-slate-grey;
           margin-bottom: 2.4rem;
+          transition: all 0.2s ease-in-out;
 
           &:focus-visible {
             border: 1px solid #242742;
@@ -134,6 +176,13 @@ main {
     gap: 26.3rem;
     padding: 14.9rem 2.4rem 4rem 2.4rem;
 
+    @media (min-width: @desktop) {
+      box-sizing: content-box;
+      padding: 2.4rem 4rem 4rem 4rem;
+      max-width: 37.6rem;
+      gap: 4rem;
+    }
+
     img {
       margin-bottom: 4rem;
     }
@@ -158,6 +207,7 @@ main {
 }
 
 .button {
+  cursor: pointer;
   border: none;
   outline: none;
   background: #242742;
@@ -167,6 +217,12 @@ main {
   font-weight: 700;
   color: @white;
   height: 5.6rem;
+  transition: box-shadow 0.3s ease-in-out;
+
+  &:hover {
+    background: linear-gradient(204.47deg, #ff6a3a 0%, #ff527b 100%);
+    box-shadow: 0px 16px 32px rgba(255, 97, 85, 0.5);
+  }
 }
 
 .title {
@@ -174,6 +230,10 @@ main {
   font-weight: 700;
   line-height: 100%;
   color: @dark-slate-grey;
+
+  @media (min-width: @desktop) {
+    font-size: 5.6rem;
+  }
 }
 
 .general-text {
